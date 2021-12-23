@@ -1,10 +1,59 @@
 import React from "react";
 
+import {
+  DeliveryDetailsWrapper,
+  StepCheckout,
+  StepItem,
+  StepNumber,
+  StepTitle,
+  RightIcon,
+  TitleWrapper,
+  Title,
+  TitleBorderBottom,
+  Back,
+  BackTitle,
+  LeftIcon,
+} from "./styles";
+
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+
 const DeliveryDetails = () => {
   return (
-    <div>
-      <p>Delivery Details</p>
-    </div>
+    <DeliveryDetailsWrapper>
+      <StepCheckout>
+        <StepItem>
+          <StepNumber active>1</StepNumber>
+          <StepTitle active>Delivery</StepTitle>
+        </StepItem>
+        <RightIcon>
+          <ArrowForwardIosIcon />
+        </RightIcon>
+        <StepItem>
+          <StepNumber>2</StepNumber>
+          <StepTitle>Payment</StepTitle>
+        </StepItem>
+
+        <RightIcon>
+          <ArrowForwardIosIcon />
+        </RightIcon>
+        <StepItem>
+          <StepNumber>3</StepNumber>
+          <StepTitle>Finish</StepTitle>
+        </StepItem>
+      </StepCheckout>
+      <Back>
+        <LeftIcon>
+          <ArrowBackIcon />
+        </LeftIcon>
+        <BackTitle>Back to cart</BackTitle>
+      </Back>
+
+      <TitleWrapper>
+        <Title>Delivery details</Title>
+        <TitleBorderBottom />
+      </TitleWrapper>
+    </DeliveryDetailsWrapper>
   );
 };
 
