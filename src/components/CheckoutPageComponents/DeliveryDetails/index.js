@@ -13,7 +13,11 @@ import {
   Back,
   BackTitle,
   LeftIcon,
+  Content,
 } from "./styles";
+
+import FormDeliveryDetails from "./FormDeliveryDetails";
+import Summary from "./Summary";
 
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -53,6 +57,11 @@ const DeliveryDetails = () => {
         <Title>Delivery details</Title>
         <TitleBorderBottom />
       </TitleWrapper>
+
+      <Content>
+        <FormDeliveryDetails />
+        <Summary />
+      </Content>
     </DeliveryDetailsWrapper>
   );
 };

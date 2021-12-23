@@ -21,6 +21,7 @@ export const StepCheckout = styled.div`
 export const StepItem = styled.div`
   display: flex;
   align-items: center;
+  cursor: pointer;
 `;
 
 export const StepNumber = styled.p`
@@ -82,4 +83,10 @@ export const Title = styled.h1`
 export const TitleBorderBottom = styled.div`
   border-bottom: 8px solid #eeeeee;
   margin-top: -40px;
+`;
+
+export const Content = styled.div`
+  display: grid;
+  grid-template-columns: auto 300px;
+  gap: 30px;
 `;
