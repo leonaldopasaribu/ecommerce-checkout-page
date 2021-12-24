@@ -1,6 +1,8 @@
 import React from "react";
 
 import SummaryPayment from "./SummaryPayment";
+import Shipment from "./Shipment";
+import PaymentMethod from "./PaymentMethod";
 
 import {
   PaymentWrapper,
@@ -18,9 +20,6 @@ import {
 
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-
-import Shipment from "./Shipment";
-import PaymentMethod from "./PaymentMethod";
 
 const Payment = () => {
   return (
