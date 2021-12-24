@@ -17,7 +17,7 @@ import {
 } from "./styles";
 
 import FormDeliveryDetails from "./FormDeliveryDetails";
-import Summary from "./Summary";
+import SummaryDelivery from "./SummaryDelivery";
 
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -60,7 +60,7 @@ const DeliveryDetails = () => {
 
       <Content>
         <FormDeliveryDetails />
-        <Summary />
+        <SummaryDelivery />
       </Content>
     </DeliveryDetailsWrapper>
   );

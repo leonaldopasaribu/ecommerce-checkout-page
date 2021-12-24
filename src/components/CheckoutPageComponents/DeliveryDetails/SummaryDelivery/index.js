@@ -15,7 +15,7 @@ import {
   TotalPaymentValue,
 } from "./styles";
 
-const Summary = () => {
+const SummaryDelivery = () => {
   return (
     <SummaryWrapper>
       <Title>Summary</Title>
@@ -39,4 +39,4 @@ const Summary = () => {
   );
 };
 
-export default Summary;
+export default SummaryDelivery;

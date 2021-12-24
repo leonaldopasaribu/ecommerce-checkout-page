@@ -3,11 +3,13 @@ import React from "react";
 import { CheckoutLayoutWrapper } from "./styles";
 
 import DeliveryDetails from "../DeliveryDetails/index";
+import Payment from "../Payment/index";
 
 const CheckoutLayout = () => {
   return (
     <CheckoutLayoutWrapper>
-      <DeliveryDetails />
+      {/* <DeliveryDetails /> */}
+      <Payment />
     </CheckoutLayoutWrapper>
   );
 };

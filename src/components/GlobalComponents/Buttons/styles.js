@@ -13,4 +13,10 @@ export const Button = styled.button`
   border: none;
   background: #ff8a00;
   color: #fff;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+    transition: 0.3s;
+  }
 `;

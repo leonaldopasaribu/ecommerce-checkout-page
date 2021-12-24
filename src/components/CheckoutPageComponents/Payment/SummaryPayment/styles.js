@@ -17,10 +17,35 @@ export const TotalProduct = styled.p`
   font-style: normal;
   font-weight: 400;
   color: #000;
+  padding-bottom: 21px;
+`;
+
+export const TotalProductBottom = styled.div`
+  border-bottom: 1px solid #d8d8d8;
+  width: 80px;
+`;
+
+export const DeliveryEstimation = styled.div`
+  margin-top: 21px;
+`;
+
+export const Label = styled.p`
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16.94px;
+`;
+
+export const Estimation = styled.p`
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 19.36px;
+  color: #1bd97b;
 `;
 
 export const TotalDelivery = styled.div`
-  margin-top: 205px;
+  margin-top: 92px;
 `;
 
 export const TotalDetail = styled.div`
@@ -39,7 +64,7 @@ export const TotalTitle = styled.p`
 export const TotalValue = styled.p`
   font-size: 14px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 16.94px;
 `;
 
