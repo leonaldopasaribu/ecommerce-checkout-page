@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 
 import {
   OrderSummaryWrapper,
@@ -15,7 +16,15 @@ import {
 
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
+import { finishCheckout } from "../../../../redux/store/actions/checkout.action";
+
 const OrderSummary = () => {
+  const dispatch = useDispatch();
+
+  const onFinish = () => {
+    dispatch(finishCheckout());
+  };
+
   return (
     <OrderSummaryWrapper>
       <TitleWrapper>
@@ -30,7 +39,7 @@ const OrderSummary = () => {
         </OrderIdDescription>
       </OrderId>
 
-      <HomepageLink>
+      <HomepageLink onClick={() => onFinish()}>
         <BackIcon>
           <ArrowBackIcon />
         </BackIcon>

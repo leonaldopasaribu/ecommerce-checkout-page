@@ -10,6 +10,8 @@ import {
   PaymentItemActive,
   PaymentItemTitle,
   PaymentItemValue,
+  PaymentItemWallet,
+  PaymentItemActiveWallet,
 } from "./styles";
 
 const PaymentMethod = () => {
@@ -44,15 +46,15 @@ const PaymentMethod = () => {
 
       <PaymentList>
         {isEWallet ? (
-          <PaymentItemActive onClick={eWalletActive}>
+          <PaymentItemActiveWallet onClick={eWalletActive}>
             <PaymentItemTitle>e-Wallet</PaymentItemTitle>
             <PaymentItemValue>1,500,000 left</PaymentItemValue>
-          </PaymentItemActive>
+          </PaymentItemActiveWallet>
         ) : (
-          <PaymentItem onClick={eWalletActive}>
+          <PaymentItemWallet onClick={eWalletActive}>
             <PaymentItemTitle>e-Wallet</PaymentItemTitle>
             <PaymentItemValue>1,500,000 left</PaymentItemValue>
-          </PaymentItem>
+          </PaymentItemWallet>
         )}
 
         {isBankTransfer ? (

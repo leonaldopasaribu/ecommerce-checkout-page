@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 
 import Buttons from "../../../GlobalComponents/Buttons";
 
@@ -15,7 +16,15 @@ import {
   TotalPaymentValue,
 } from "./styles";
 
+import { addDeliveryDetails } from "../../../../redux/store/actions/checkout.action";
+
 const SummaryDelivery = () => {
+  const dispatch = useDispatch();
+
+  const onAddDeliveryDetails = () => {
+    dispatch(addDeliveryDetails());
+  };
+
   return (
     <SummaryWrapper>
       <Title>Summary</Title>
@@ -33,7 +42,10 @@ const SummaryDelivery = () => {
           <TotalPaymentTitle>Total</TotalPaymentTitle>
           <TotalPaymentValue>505,900</TotalPaymentValue>
         </TotalPayment>
-        <Buttons title="Continue to Payment" />
+        <Buttons
+          title="Continue to Payment"
+          onClick={() => onAddDeliveryDetails()}
+        />
       </TotalDelivery>
     </SummaryWrapper>
   );

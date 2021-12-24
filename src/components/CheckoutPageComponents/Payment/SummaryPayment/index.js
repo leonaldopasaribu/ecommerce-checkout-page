@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 
 import Buttons from "../../../GlobalComponents/Buttons";
 
@@ -19,7 +20,15 @@ import {
   TotalPaymentValue,
 } from "./styles";
 
+import { addPayment } from "../../../../redux/store/actions/checkout.action";
+
 const SummaryPayment = () => {
+  const dispatch = useDispatch();
+
+  const onAddPayment = () => {
+    dispatch(addPayment());
+  };
+
   return (
     <SummaryWrapper>
       <Title>Summary</Title>
@@ -50,8 +59,8 @@ const SummaryPayment = () => {
           <TotalPaymentTitle>Total</TotalPaymentTitle>
           <TotalPaymentValue>505,900</TotalPaymentValue>
         </TotalPayment>
-        
-        <Buttons title="Pay with e-Wallet" />
+
+        <Buttons title="Pay with e-Wallet" onClick={() => onAddPayment()} />
       </TotalDelivery>
     </SummaryWrapper>
   );

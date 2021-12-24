@@ -54,6 +54,10 @@ export const HomepageLink = styled.div`
   margin-top: 60px;
   display: flex;
   align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const BackIcon = styled.span`

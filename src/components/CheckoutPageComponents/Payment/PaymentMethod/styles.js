@@ -43,6 +43,31 @@ export const PaymentItem = styled.div`
 `;
 
 export const PaymentItemActive = styled.div`
+  display: flex;
+  align-items: center;
+  width: 180px;
+  background: rgba(27, 217, 123, 0.1);
+  border: 2px solid #1bd97b;
+  padding: 11px 15px;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const PaymentItemWallet = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  border: 1px solid #cccccc;
+  padding: 11px 15px;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const PaymentItemActiveWallet = styled.div`
   width: 180px;
   background: rgba(27, 217, 123, 0.1);
   border: 2px solid #1bd97b;
