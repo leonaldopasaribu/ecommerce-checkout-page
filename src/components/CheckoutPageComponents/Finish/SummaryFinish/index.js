@@ -1,7 +1,5 @@
 import React from "react";
 
-import Buttons from "../../../GlobalComponents/Buttons";
-
 import {
   SummaryWrapper,
   Title,

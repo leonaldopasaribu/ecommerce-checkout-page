@@ -66,9 +66,13 @@ export const BackTitle = styled.p`
   font-weight: 500;
 `;
 
+export const HeadingDelivery = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const TitleWrapper = styled.div`
   width: fit-content;
-  margin-top: 24px;
 `;
 
 export const Title = styled.h1`
@@ -85,8 +89,29 @@ export const TitleBorderBottom = styled.div`
   margin-top: -40px;
 `;
 
-export const Content = styled.div`
+export const CheckboxDropshipper = styled.div`
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+`;
+
+export const DropshipperInput = styled.input`
+  margin-right: 10px;
+`;
+
+export const DropshipperTitle = styled.label`
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.8;
+`;
+
+export const ContentWrapper = styled.div`
   display: grid;
   grid-template-columns: auto 300px;
   gap: 30px;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
 `;

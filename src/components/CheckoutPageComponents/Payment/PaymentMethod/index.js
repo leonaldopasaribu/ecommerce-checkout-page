@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
 import {
   PaymentMethodWrapper,
@@ -14,28 +14,17 @@ import {
   PaymentItemActiveWallet,
 } from "./styles";
 
+import { AppContext } from "../../../../context/AppContext";
+
 const PaymentMethod = () => {
-  const [isEWallet, setIsEWallet] = useState(true);
-  const [isBankTransfer, setIsBankTransfer] = useState(false);
-  const [isVirtualAccount, setIsVirtualAccount] = useState(false);
-
-  const eWalletActive = () => {
-    setIsEWallet(true);
-    setIsBankTransfer(false);
-    setIsVirtualAccount(false);
-  };
-
-  const bankTransferActive = () => {
-    setIsEWallet(false);
-    setIsBankTransfer(true);
-    setIsVirtualAccount(false);
-  };
-
-  const virtualAccountActive = () => {
-    setIsEWallet(false);
-    setIsBankTransfer(false);
-    setIsVirtualAccount(true);
-  };
+  const {
+    isEWallet,
+    isBankTransfer,
+    isVirtualAccount,
+    eWalletActive,
+    bankTransferActive,
+    virtualAccountActive,
+  } = useContext(AppContext);
 
   return (
     <PaymentMethodWrapper>

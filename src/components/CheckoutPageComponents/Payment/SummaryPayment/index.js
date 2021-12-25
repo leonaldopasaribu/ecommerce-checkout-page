@@ -1,5 +1,5 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import Buttons from "../../../GlobalComponents/Buttons";
 
@@ -22,8 +22,14 @@ import {
 
 import { addPayment } from "../../../../redux/store/actions/checkout.action";
 
+import { AppContext } from "../../../../context/AppContext";
+
 const SummaryPayment = () => {
   const dispatch = useDispatch();
+  const { isEWallet, isBankTransfer, isVirtualAccount, currencyFormatter } =
+    useContext(AppContext);
+
+  const checkout = useSelector((state) => state.checkout);
 
   const onAddPayment = () => {
     dispatch(addPayment());
@@ -37,7 +43,7 @@ const SummaryPayment = () => {
 
       <DeliveryEstimation>
         <Label>Delivery estimation</Label>
-        <Estimation>today by GO-SEND</Estimation>
+        <Estimation>today by {checkout.summary.shipmentName}</Estimation>
       </DeliveryEstimation>
 
       <TotalDelivery>
@@ -46,8 +52,8 @@ const SummaryPayment = () => {
           <TotalValue>500,000</TotalValue>
         </TotalDetail>
         <TotalDetail>
-          <TotalTitle>Cost of goods</TotalTitle>
-          <TotalValue>500,000</TotalValue>
+          <TotalTitle>Dropshipping Fee</TotalTitle>
+          <TotalValue>{currencyFormatter(checkout.summary.cost)}</TotalValue>
         </TotalDetail>
         <TotalDetail>
           <TotalTitle>
@@ -57,10 +63,17 @@ const SummaryPayment = () => {
         </TotalDetail>
         <TotalPayment>
           <TotalPaymentTitle>Total</TotalPaymentTitle>
-          <TotalPaymentValue>505,900</TotalPaymentValue>
+          <TotalPaymentValue>{currencyFormatter(505900)}</TotalPaymentValue>
         </TotalPayment>
 
-        <Buttons title="Pay with e-Wallet" onClick={() => onAddPayment()} />
+        <Buttons
+          title={`Payment with ${
+            (isEWallet && "e-Wallet") ||
+            (isBankTransfer && "Bank Transfer") ||
+            (isVirtualAccount && "Virtual Account")
+          }`}
+          onClick={() => onAddPayment()}
+        />
       </TotalDelivery>
     </SummaryWrapper>
   );

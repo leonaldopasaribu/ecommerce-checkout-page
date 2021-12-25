@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import SummaryPayment from "./SummaryPayment";
 import Shipment from "./Shipment";
@@ -21,7 +22,18 @@ import {
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
+import { CHECKOUT_BACK_DELIVERY } from "../../../redux/actionTypes";
+
 const Payment = () => {
+  const dispatch = useDispatch();
+  const { shipmentData } = useSelector((state) => state.checkout);
+
+  const backToDelivery = () => {
+    dispatch({
+      type: CHECKOUT_BACK_DELIVERY,
+    });
+  };
+
   return (
     <PaymentWrapper>
       <StepCheckout>
@@ -45,7 +57,7 @@ const Payment = () => {
           <StepTitle>Finish</StepTitle>
         </StepItem>
       </StepCheckout>
-      <Back>
+      <Back onClick={backToDelivery}>
         <LeftIcon>
           <ArrowBackIcon />
         </LeftIcon>
@@ -54,10 +66,10 @@ const Payment = () => {
 
       <ContentWrapper>
         <Content>
-          <Shipment />
+          <Shipment shipmentData={shipmentData} />
           <PaymentMethod />
         </Content>
-        <SummaryPayment />
+        <SummaryPayment shipmentData={shipmentData} />
       </ContentWrapper>
     </PaymentWrapper>
   );
