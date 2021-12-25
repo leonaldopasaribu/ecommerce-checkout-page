@@ -83,6 +83,7 @@ const SummaryPayment = () => {
             (isVirtualAccount && "Virtual Account")
           }`}
           onClick={() => onAddPayment()}
+          disabled={!checkout.summary.hasOwnProperty("id")}
         />
       </TotalDelivery>
     </SummaryWrapper>

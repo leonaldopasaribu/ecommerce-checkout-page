@@ -34,7 +34,7 @@ const OrderSummary = () => {
       </TitleWrapper>
 
       <OrderId>
-        <OrderIdTitle>Order ID : XXKYB</OrderIdTitle>
+        <OrderIdTitle>Order ID : {checkout.order}</OrderIdTitle>
         <OrderIdDescription>
           Your order will be delivered today with{" "}
           {checkout.summary.shipmentName}
