@@ -34,6 +34,7 @@ const initialState = {
       estimate: "1 day",
     },
   ],
+  order: {},
 };
 
 const checkout = (state = initialState, action) => {
@@ -58,6 +59,7 @@ const checkout = (state = initialState, action) => {
         ...state,
         isLoading: false,
         checkoutStep: "finish",
+        order: action.payload,
       };
 
     case CHECKOUT_FINISH_SUCCESS:

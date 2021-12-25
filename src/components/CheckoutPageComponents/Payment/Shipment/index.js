@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import {
@@ -20,22 +20,18 @@ import { CHECKOUT_DROPSHIPPING_FEE } from "../../../../redux/actionTypes";
 const Shipment = ({ shipmentData }) => {
   const dispatch = useDispatch();
 
-  const {
-    // isGoSend,
-    // isJne,
-    // isPersonalCourier,
-    // goSendActive,
-    // jneActive,
-    // personalCourierActive,
-    currencyFormatter,
-  } = useContext(AppContext);
+  const { currencyFormatter } = useContext(AppContext);
 
-  const shipmentActive = (data) => {
+  const [active, setActive] = useState(0);
+
+  const shipmentActive = (data, i) => {
     // console.log(data);
+
     dispatch({
       type: CHECKOUT_DROPSHIPPING_FEE,
       payload: data,
     });
+    setActive(i);
   };
 
   return (
@@ -47,42 +43,17 @@ const Shipment = ({ shipmentData }) => {
 
       <ShipmentList>
         {shipmentData.map((data, i) => (
-          <ShipmentItem key={i} onClick={() => shipmentActive(data)}>
+          <ShipmentItem
+            active={i === active ? i : ""}
+            key={i}
+            onClick={() => shipmentActive(data, i)}
+          >
             <ShipmentItemTitle>{data.shipmentName}</ShipmentItemTitle>
             <ShipmentItemValue>
               {currencyFormatter(data.cost)}
             </ShipmentItemValue>
           </ShipmentItem>
         ))}
-
-        {/* <ShipmentItem onClick={goSendActive}>
-          <ShipmentItemTitle>GO-SEND</ShipmentItemTitle>
-          <ShipmentItemValue>15,000</ShipmentItemValue>
-        </ShipmentItem>
-
-        {isJne ? (
-          <ShipmentItemActive onClick={jneActive}>
-            <ShipmentItemTitle>JNE</ShipmentItemTitle>
-            <ShipmentItemValue>9,000</ShipmentItemValue>
-          </ShipmentItemActive>
-        ) : (
-          <ShipmentItem onClick={jneActive}>
-            <ShipmentItemTitle>JNE</ShipmentItemTitle>
-            <ShipmentItemValue>9,000</ShipmentItemValue>
-          </ShipmentItem>
-        )}
-
-        {isPersonalCourier ? (
-          <ShipmentItemActive onClick={personalCourierActive}>
-            <ShipmentItemTitle>Personal Courier</ShipmentItemTitle>
-            <ShipmentItemValue>29,000</ShipmentItemValue>
-          </ShipmentItemActive>
-        ) : (
-          <ShipmentItem onClick={personalCourierActive}>
-            <ShipmentItemTitle>Personal Courier</ShipmentItemTitle>
-            <ShipmentItemValue>29,000</ShipmentItemValue>
-          </ShipmentItem>
-        )} */}
       </ShipmentList>
     </ShipmentWrapper>
   );
