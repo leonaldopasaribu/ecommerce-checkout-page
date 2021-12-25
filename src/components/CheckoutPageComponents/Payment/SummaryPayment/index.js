@@ -43,7 +43,13 @@ const SummaryPayment = () => {
 
       <DeliveryEstimation>
         <Label>Delivery estimation</Label>
-        <Estimation>today by {checkout.summary.shipmentName}</Estimation>
+        <Estimation>
+          {checkout.summary.hasOwnProperty("cost")
+            ? `
+          ${checkout.summary.estimate} by ${checkout.summary.shipmentName}
+          `
+            : "Please Choose Shipment!"}
+        </Estimation>
       </DeliveryEstimation>
 
       <TotalDelivery>
@@ -53,11 +59,15 @@ const SummaryPayment = () => {
         </TotalDetail>
         <TotalDetail>
           <TotalTitle>Dropshipping Fee</TotalTitle>
-          <TotalValue>{currencyFormatter(checkout.summary.cost)}</TotalValue>
+          <TotalValue>
+            {checkout.summary.hasOwnProperty("cost")
+              ? currencyFormatter(checkout.summary.cost)
+              : 0}
+          </TotalValue>
         </TotalDetail>
         <TotalDetail>
           <TotalTitle>
-            <b>GO-SEND</b> shipment
+            <b>{checkout.summary.shipmentName}</b> shipment
           </TotalTitle>
           <TotalValue>15,000</TotalValue>
         </TotalDetail>
