@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   OrderSummaryWrapper,
@@ -20,6 +20,7 @@ import { finishCheckout } from "../../../../redux/store/actions/checkout.action"
 
 const OrderSummary = () => {
   const dispatch = useDispatch();
+  const checkout = useSelector((state) => state.checkout);
 
   const onFinish = () => {
     dispatch(finishCheckout());
@@ -35,7 +36,8 @@ const OrderSummary = () => {
       <OrderId>
         <OrderIdTitle>Order ID : XXKYB</OrderIdTitle>
         <OrderIdDescription>
-          Your order will be delivered today with GO-SEND
+          Your order will be delivered today with{" "}
+          {checkout.summary.shipmentName}
         </OrderIdDescription>
       </OrderId>
 

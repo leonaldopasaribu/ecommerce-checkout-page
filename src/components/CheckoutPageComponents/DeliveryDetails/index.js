@@ -7,12 +7,16 @@ import {
   StepNumber,
   StepTitle,
   RightIcon,
+  HeadingDelivery,
   TitleWrapper,
   Title,
   TitleBorderBottom,
+  CheckboxDropshipper,
+  DropshipperTitle,
   Back,
   BackTitle,
   LeftIcon,
+  ContentWrapper,
   Content,
 } from "./styles";
 
@@ -53,15 +57,27 @@ const DeliveryDetails = () => {
         <BackTitle>Back to cart</BackTitle>
       </Back>
 
-      <TitleWrapper>
-        <Title>Delivery details</Title>
-        <TitleBorderBottom />
-      </TitleWrapper>
-
-      <Content>
-        <FormDeliveryDetails />
+      <ContentWrapper>
+        <Content>
+          <HeadingDelivery>
+            <TitleWrapper>
+              <Title>Delivery details</Title>
+              <TitleBorderBottom />
+            </TitleWrapper>
+            <CheckboxDropshipper>
+              <div className="checkbox bounce">
+                <input type="checkbox" />
+                <svg viewBox="0 0 21 21">
+                  <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                </svg>
+              </div>
+              <DropshipperTitle>Send as dropshipper</DropshipperTitle>
+            </CheckboxDropshipper>
+          </HeadingDelivery>
+          <FormDeliveryDetails />
+        </Content>
         <SummaryDelivery />
-      </Content>
+      </ContentWrapper>
     </DeliveryDetailsWrapper>
   );
 };

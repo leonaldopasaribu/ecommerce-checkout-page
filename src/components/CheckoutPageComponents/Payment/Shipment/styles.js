@@ -32,7 +32,9 @@ export const ShipmentList = styled.div`
 
 export const ShipmentItem = styled.div`
   width: 180px;
-  border: 1px solid #cccccc;
+  background: ${(props) => (props.active ? "rgba(27, 217, 123, 0.1)" : "#fff")};
+  border: ${(props) =>
+    props.active ? "2px solid #1bd97b" : "1px solid #cccccc"};
   padding: 11px 15px;
 
   &:hover {

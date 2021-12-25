@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { useDispatch } from "react-redux";
 
 import {
   ShipmentWrapper,
@@ -7,32 +8,34 @@ import {
   TitleBorderBottom,
   ShipmentList,
   ShipmentItem,
-  ShipmentItemActive,
+  // ShipmentItemActive,
   ShipmentItemTitle,
   ShipmentItemValue,
 } from "./styles";
 
-const Shipment = () => {
-  const [isGoSend, setIsGoSend] = useState(true);
-  const [isJne, setIsJne] = useState(false);
-  const [isPersonalCourier, setIsPersonalCourier] = useState(false);
+import { AppContext } from "../../../../context/AppContext";
 
-  const goSendActive = () => {
-    setIsGoSend(true);
-    setIsJne(false);
-    setIsPersonalCourier(false);
-  };
+import { CHECKOUT_DROPSHIPPING_FEE } from "../../../../redux/actionTypes";
 
-  const jneActive = () => {
-    setIsGoSend(false);
-    setIsJne(true);
-    setIsPersonalCourier(false);
-  };
+const Shipment = ({ shipmentData }) => {
+  const dispatch = useDispatch();
 
-  const personalCourierActive = () => {
-    setIsGoSend(false);
-    setIsJne(false);
-    setIsPersonalCourier(true);
+  const {
+    // isGoSend,
+    // isJne,
+    // isPersonalCourier,
+    // goSendActive,
+    // jneActive,
+    // personalCourierActive,
+    currencyFormatter,
+  } = useContext(AppContext);
+
+  const shipmentActive = (data) => {
+    // console.log(data);
+    dispatch({
+      type: CHECKOUT_DROPSHIPPING_FEE,
+      payload: data,
+    });
   };
 
   return (
@@ -43,17 +46,19 @@ const Shipment = () => {
       </TitleWrapper>
 
       <ShipmentList>
-        {isGoSend ? (
-          <ShipmentItemActive onClick={goSendActive}>
-            <ShipmentItemTitle>GO-SEND</ShipmentItemTitle>
-            <ShipmentItemValue>15,000</ShipmentItemValue>
-          </ShipmentItemActive>
-        ) : (
-          <ShipmentItem onClick={goSendActive}>
-            <ShipmentItemTitle>GO-SEND</ShipmentItemTitle>
-            <ShipmentItemValue>15,000</ShipmentItemValue>
+        {shipmentData.map((data, i) => (
+          <ShipmentItem key={i} onClick={() => shipmentActive(data)}>
+            <ShipmentItemTitle>{data.shipmentName}</ShipmentItemTitle>
+            <ShipmentItemValue>
+              {currencyFormatter(data.cost)}
+            </ShipmentItemValue>
           </ShipmentItem>
-        )}
+        ))}
+
+        {/* <ShipmentItem onClick={goSendActive}>
+          <ShipmentItemTitle>GO-SEND</ShipmentItemTitle>
+          <ShipmentItemValue>15,000</ShipmentItemValue>
+        </ShipmentItem>
 
         {isJne ? (
           <ShipmentItemActive onClick={jneActive}>
@@ -77,7 +82,7 @@ const Shipment = () => {
             <ShipmentItemTitle>Personal Courier</ShipmentItemTitle>
             <ShipmentItemValue>29,000</ShipmentItemValue>
           </ShipmentItem>
-        )}
+        )} */}
       </ShipmentList>
     </ShipmentWrapper>
   );

@@ -1,6 +1,5 @@
-import React from "react";
-
-import Buttons from "../../../GlobalComponents/Buttons";
+import React, { useContext } from "react";
+import { useSelector } from "react-redux";
 
 import {
   SummaryWrapper,
@@ -19,7 +18,12 @@ import {
   TotalPaymentValue,
 } from "./styles";
 
+import { AppContext } from "../../../../context/AppContext";
+
 const SummaryFinish = () => {
+  const { currencyFormatter } = useContext(AppContext);
+  const checkout = useSelector((state) => state.checkout);
+
   return (
     <SummaryWrapper>
       <Title>Summary</Title>
@@ -28,7 +32,13 @@ const SummaryFinish = () => {
 
       <DeliveryEstimation>
         <Label>Delivery estimation</Label>
-        <Estimation>today by GO-SEND</Estimation>
+        <Estimation>
+          {checkout.summary.hasOwnProperty('cost')
+            ? `
+          ${checkout.summary.estimate} by ${checkout.summary.shipmentName}
+          `
+            : "Please Choose Shipment!"}
+        </Estimation>
       </DeliveryEstimation>
 
       <DeliveryEstimation>
@@ -39,15 +49,19 @@ const SummaryFinish = () => {
       <TotalDelivery>
         <TotalDetail>
           <TotalTitle>Cost of goods</TotalTitle>
-          <TotalValue>500,000</TotalValue>
+          <TotalValue>{currencyFormatter(500000)}</TotalValue>
         </TotalDetail>
         <TotalDetail>
-          <TotalTitle>Cost of goods</TotalTitle>
-          <TotalValue>500,000</TotalValue>
+          <TotalTitle>Dropshipping Fee</TotalTitle>
+          <TotalValue>
+            {checkout.summary.hasOwnProperty("cost")
+              ? currencyFormatter(checkout.summary.cost)
+              : 0}
+          </TotalValue>
         </TotalDetail>
         <TotalDetail>
           <TotalTitle>
-            <b>GO-SEND</b> shipment
+            <b>{checkout.summary.shipmentName}</b> shipment
           </TotalTitle>
           <TotalValue>15,000</TotalValue>
         </TotalDetail>
