@@ -3,6 +3,11 @@ import styled from "styled-components";
 export const SummaryWrapper = styled.div`
   padding: 80px 0 20px 20px;
   border-left: 2px solid #fffae6;
+
+  @media only screen and (max-width: 600px) {
+    border: none;
+    padding: 30px 0 20px 0;
+  }
 `;
 
 export const Title = styled.h2`

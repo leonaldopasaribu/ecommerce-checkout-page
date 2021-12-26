@@ -8,6 +8,10 @@ export const Form = styled.form`
   display: grid;
   grid-gap: 30px;
   grid-template-columns: auto auto;
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const FormLeft = styled.div``;

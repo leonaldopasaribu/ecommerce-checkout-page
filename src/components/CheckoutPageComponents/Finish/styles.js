@@ -16,6 +16,11 @@ export const StepCheckout = styled.div`
   transform: translate(-50%, -50%);
   left: 50%;
   z-index: 1;
+
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    padding: 10px;
+  }
 `;
 
 export const StepItem = styled.div`
@@ -34,12 +39,25 @@ export const StepNumber = styled.p`
   color: ${(props) => (props.active ? "#fff" : "#ff8a00")};
   padding: 6px 0 0 10px;
   margin-right: 10px;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 12px;
+    font-weight: 400;
+    width: 20px;
+    height: 20px;
+    padding: 3px 0 0 6px;
+  }
 `;
 
 export const StepTitle = styled.p`
   font-size: 16px;
   font-weight: 500;
   color: #ff8a00;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 12px;
+    font-weight: 400;
+  }
 `;
 
 export const RightIcon = styled.svg`
@@ -71,4 +89,8 @@ export const Content = styled.div`
   display: grid;
   grid-template-columns: auto 300px;
   gap: 30px;
+
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 `;

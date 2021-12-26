@@ -28,6 +28,11 @@ export const PaymentList = styled.div`
   display: flex;
   gap: 10px;
   margin-top: 30px;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const PaymentItem = styled.div`
