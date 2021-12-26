@@ -31,6 +31,13 @@ const SummaryPayment = () => {
 
   const checkout = useSelector((state) => state.checkout);
 
+  const costOfGood = 500000;
+
+  const totalPayment =
+    costOfGood +
+    Number(checkout.dropShippingFee) +
+    Number(checkout.summary.cost);
+
   const onAddPayment = () => {
     dispatch(addPayment());
   };
@@ -59,21 +66,23 @@ const SummaryPayment = () => {
         </TotalDetail>
         <TotalDetail>
           <TotalTitle>Dropshipping Fee</TotalTitle>
+          <TotalValue>{currencyFormatter(checkout.dropShippingFee)}</TotalValue>
+        </TotalDetail>
+        <TotalDetail>
+          <TotalTitle>
+            <b>{checkout.summary.shipmentName}</b> shipment
+          </TotalTitle>
           <TotalValue>
             {checkout.summary.hasOwnProperty("cost")
               ? currencyFormatter(checkout.summary.cost)
               : 0}
           </TotalValue>
         </TotalDetail>
-        <TotalDetail>
-          <TotalTitle>
-            <b>{checkout.summary.shipmentName}</b> shipment
-          </TotalTitle>
-          <TotalValue>15,000</TotalValue>
-        </TotalDetail>
         <TotalPayment>
           <TotalPaymentTitle>Total</TotalPaymentTitle>
-          <TotalPaymentValue>{currencyFormatter(505900)}</TotalPaymentValue>
+          <TotalPaymentValue>
+            {currencyFormatter(totalPayment)}
+          </TotalPaymentValue>
         </TotalPayment>
 
         <Buttons
