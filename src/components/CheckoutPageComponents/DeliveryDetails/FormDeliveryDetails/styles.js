@@ -43,3 +43,10 @@ export const FormTextarea = styled.textarea`
   font-weight: 300;
   color: #000000;
 `;
+
+export const FormTextAreaCount = styled.p`
+  margin-top: 10px;
+  color: #1bd97b;
+  font-size: 14px;
+  font-weight: 500;
+`;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import {
@@ -9,10 +9,21 @@ import {
   FormWrapper,
   FormInput,
   FormTextarea,
+  FormTextAreaCount,
 } from "./styles";
 
 const FormDeliveryDetails = () => {
-  const { handleSubmit, register } = useForm();
+  const {
+    handleSubmit,
+    watch,
+    register,
+    formState: { errors },
+  } = useForm();
+  const [characterCount, setCharacterCount] = useState(0)
+
+  // const districtRealTime = watch('deliveryAddress').length;
+
+  // const counterTextarea = 120 - watch("deliveryAddress").lenght;
 
   const onSubmit = (value) => {
     console.log(value);
@@ -28,7 +39,7 @@ const FormDeliveryDetails = () => {
               type="email"
               placeholder="Email"
               {...register("email", {
-                required: "Email Cannot be blank",
+                required: true,
                 pattern: {
                   value:
                     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
@@ -44,15 +55,18 @@ const FormDeliveryDetails = () => {
               type="number"
               placeholder="Phone Number"
               {...register("phoneNumber", {
-                required: "Phone Number Cannot be blank",
-                minLength: { value: 6, message: "Min 3 character" },
-                maxLength: { value: 20, message: "Max 20 character" },
+                required: true,
+                minLength: 6,
+                maxLength: 20,
                 pattern: {
                   value: /^0\d{9,12}/g,
                   message: "*Please enter valid phone number",
                 },
               })}
             />
+            {errors.phoneNumber && errors.phoneNumber.type === "maxLength" && (
+              <p>Max length exceeded</p>
+            )}
           </FormWrapper>
 
           <FormWrapper>
@@ -60,10 +74,11 @@ const FormDeliveryDetails = () => {
               autoComplete="off"
               placeholder="Delivery Address"
               {...register("deliveryAddress", {
-                required: "Delivery Address Cannot be blank",
-                maxLength: { value: 120, message: "Max 120 character" },
+                required: true,
+                maxLength: 120,
               })}
             />
+            <FormTextAreaCount>{characterCount}</FormTextAreaCount>
           </FormWrapper>
         </FormLeft>
         <FormRight>

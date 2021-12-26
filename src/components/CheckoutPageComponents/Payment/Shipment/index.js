@@ -15,7 +15,7 @@ import {
 
 import { AppContext } from "../../../../context/AppContext";
 
-import { CHECKOUT_DROPSHIPPING_FEE } from "../../../../redux/actionTypes";
+import { CHECKOUT_SHIPPING_FEE } from "../../../../redux/actionTypes";
 
 const Shipment = ({ shipmentData }) => {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ const Shipment = ({ shipmentData }) => {
     // console.log(data);
 
     dispatch({
-      type: CHECKOUT_DROPSHIPPING_FEE,
+      type: CHECKOUT_SHIPPING_FEE,
       payload: data,
     });
     setActive(i);

@@ -24,6 +24,13 @@ const SummaryFinish = () => {
   const { currencyFormatter } = useContext(AppContext);
   const checkout = useSelector((state) => state.checkout);
 
+  const costOfGood = 500000;
+
+  const totalPayment =
+    costOfGood +
+    Number(checkout.dropShippingFee) +
+    Number(checkout.summary.cost);
+
   return (
     <SummaryWrapper>
       <Title>Summary</Title>
@@ -33,7 +40,7 @@ const SummaryFinish = () => {
       <DeliveryEstimation>
         <Label>Delivery estimation</Label>
         <Estimation>
-          {checkout.summary.hasOwnProperty('cost')
+          {checkout.summary.hasOwnProperty("cost")
             ? `
           ${checkout.summary.estimate} by ${checkout.summary.shipmentName}
           `
@@ -54,20 +61,29 @@ const SummaryFinish = () => {
         <TotalDetail>
           <TotalTitle>Dropshipping Fee</TotalTitle>
           <TotalValue>
-            {checkout.summary.hasOwnProperty("cost")
-              ? currencyFormatter(checkout.summary.cost)
-              : 0}
+            <TotalValue>
+              {currencyFormatter(checkout.dropShippingFee)}
+            </TotalValue>
           </TotalValue>
         </TotalDetail>
         <TotalDetail>
           <TotalTitle>
             <b>{checkout.summary.shipmentName}</b> shipment
           </TotalTitle>
-          <TotalValue>15,000</TotalValue>
+          <TotalValue>
+            {checkout.summary.hasOwnProperty("cost")
+              ? currencyFormatter(checkout.summary.cost)
+              : 0}
+          </TotalValue>
         </TotalDetail>
         <TotalPayment>
           <TotalPaymentTitle>Total</TotalPaymentTitle>
-          <TotalPaymentValue>505,900</TotalPaymentValue>
+          <TotalPaymentValue>
+            {checkout.summary.hasOwnProperty("cost")
+              ? currencyFormatter(totalPayment)
+              : currencyFormatter(costOfGood) +
+                currencyFormatter(checkout.dropShippingFee)}
+          </TotalPaymentValue>
         </TotalPayment>
       </TotalDelivery>
     </SummaryWrapper>

@@ -4,6 +4,7 @@ import {
   CHECKOUT_PAYMENT_SUCCESS,
   CHECKOUT_FINISH_SUCCESS,
   CHECKOUT_BACK_DELIVERY,
+  CHECKOUT_SHIPPING_FEE,
   CHECKOUT_DROPSHIPPING_FEE,
 } from "../../actionTypes";
 
@@ -14,6 +15,7 @@ const initialState = {
   isError: false,
   checkoutStep: "delivery",
   summary: {},
+  dropShippingFee: 0,
   shipmentData: [
     {
       id: "go-send",
@@ -37,7 +39,7 @@ const initialState = {
   order: {},
 };
 
-const checkout = (state = initialState, action) => {
+const checkoutReducer = (state = initialState, action) => {
   switch (action.type) {
     case CHECKOUT_REQUEST:
       return {
@@ -68,6 +70,7 @@ const checkout = (state = initialState, action) => {
         isLoading: false,
         checkoutStep: "delivery",
         summary: {},
+        dropShippingFee: "",
       };
 
     case CHECKOUT_BACK_DELIVERY:
@@ -80,6 +83,13 @@ const checkout = (state = initialState, action) => {
     case CHECKOUT_DROPSHIPPING_FEE:
       return {
         ...state,
+        isLoading: false,
+        dropShippingFee: action.payload,
+      };
+
+    case CHECKOUT_SHIPPING_FEE:
+      return {
+        ...state,
         summary: action.payload,
       };
     default:
@@ -87,4 +97,4 @@ const checkout = (state = initialState, action) => {
   }
 };
 
-export default checkout;
+export default checkoutReducer;

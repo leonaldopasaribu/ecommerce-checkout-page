@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import {
   DeliveryDetailsWrapper,
@@ -26,7 +27,21 @@ import SummaryDelivery from "./SummaryDelivery";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
+import { CHECKOUT_DROPSHIPPING_FEE } from "../../../redux/actionTypes";
+
 const DeliveryDetails = () => {
+  const dispatch = useDispatch();
+  const [checked, setChecked] = useState(false);
+  const handleChange = () => {
+    setChecked(!checked);
+
+    if (!checked) {
+      dispatch({ type: CHECKOUT_DROPSHIPPING_FEE, payload: 5900 });
+    } else {
+      dispatch({ type: CHECKOUT_DROPSHIPPING_FEE, payload: 0 });
+    }
+  };
+
   return (
     <DeliveryDetailsWrapper>
       <StepCheckout>
@@ -66,7 +81,7 @@ const DeliveryDetails = () => {
             </TitleWrapper>
             <CheckboxDropshipper>
               <div className="checkbox bounce">
-                <input type="checkbox" />
+                <input type="checkbox" onChange={handleChange} />
                 <svg viewBox="0 0 21 21">
                   <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
                 </svg>
