@@ -3,7 +3,7 @@
   margin: auto;
   max-width: 1600px;
 
-  @include x-large() {
+  @include for-desktop() {
     padding: 50px;
   }
 }
