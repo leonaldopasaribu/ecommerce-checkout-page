@@ -15,15 +15,22 @@ import {
 const FormDeliveryDetails = () => {
   const {
     handleSubmit,
-    watch,
     register,
+    watch,
     formState: { errors },
   } = useForm();
-  const [characterCount, setCharacterCount] = useState(0)
 
-  // const districtRealTime = watch('deliveryAddress').length;
+  const initialValue = {
+    deliveryAddress: "",
+  };
 
-  // const counterTextarea = 120 - watch("deliveryAddress").lenght;
+  const [formValue, setFormValue] = useState(initialValue);
+
+  // const counterTextarea = watch("deliveryAddress").length;
+
+  const handleChange = (event) => {
+    setFormValue({ ...formValue, [event.target.name]: event.target.value });
+  };
 
   const onSubmit = (value) => {
     console.log(value);
@@ -73,12 +80,14 @@ const FormDeliveryDetails = () => {
             <FormTextarea
               autoComplete="off"
               placeholder="Delivery Address"
-              {...register("deliveryAddress", {
-                required: true,
-                maxLength: 120,
-              })}
+              maxLength={120}
+              name="deliveryAddress"
+              onChange={handleChange}
+              value={formValue.deliveryAddress}
             />
-            <FormTextAreaCount>{characterCount}</FormTextAreaCount>
+            <FormTextAreaCount>
+              {120 - formValue.deliveryAddress.length} Characters Left
+            </FormTextAreaCount>
           </FormWrapper>
         </FormLeft>
         <FormRight>
