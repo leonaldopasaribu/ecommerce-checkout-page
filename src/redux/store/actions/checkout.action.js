@@ -14,7 +14,7 @@ export const addDeliveryDetails = (data) => async (dispatch) => {
   }
 };
 
-export const addPayment = (data) => async (dispatch) => {
+export const choosePaymentMethod = (data) => async (dispatch) => {
   const charset = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 
   const orderId = [...Array(5)]

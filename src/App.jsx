@@ -1,8 +1,7 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { AppProvider } from "./context/AppContext";
-
 import Checkout from "./pages/Checkout";
 
 import "./styles/main.scss";
@@ -10,11 +9,13 @@ import "./styles/main.scss";
 function App() {
   return (
     <AppProvider>
-      <Router>
+      <BrowserRouter>
         <div className="App">
-          <Route exact path="/" component={Checkout} />
+          <Routes>
+            <Route exact path="/" element={<Checkout />} />
+          </Routes>
         </div>
-      </Router>
+      </BrowserRouter>
     </AppProvider>
   );
 }

@@ -16,7 +16,6 @@ const FormDeliveryDetails = () => {
   const {
     handleSubmit,
     register,
-    watch,
     formState: { errors },
   } = useForm();
 
@@ -25,8 +24,6 @@ const FormDeliveryDetails = () => {
   };
 
   const [formValue, setFormValue] = useState(initialValue);
-
-  // const counterTextarea = watch("deliveryAddress").length;
 
   const handleChange = (event) => {
     setFormValue({ ...formValue, [event.target.name]: event.target.value });

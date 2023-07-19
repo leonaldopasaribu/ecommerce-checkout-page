@@ -20,7 +20,7 @@ import {
   TotalPaymentValue,
 } from "./styles";
 
-import { addPayment } from "../../../../redux/store/actions/checkout.action";
+import { choosePaymentMethod } from "../../../../redux/store/actions/checkout.action";
 
 import { AppContext } from "../../../../context/AppContext";
 
@@ -38,8 +38,8 @@ const SummaryPayment = () => {
     Number(checkout.dropShippingFee) +
     Number(checkout.summary.cost);
 
-  const onAddPayment = () => {
-    dispatch(addPayment());
+  const onClickButtonPayment = () => {
+    dispatch(choosePaymentMethod());
   };
 
   return (
@@ -91,7 +91,7 @@ const SummaryPayment = () => {
             (isBankTransfer && "Bank Transfer") ||
             (isVirtualAccount && "Virtual Account")
           }`}
-          onClick={() => onAddPayment()}
+          onClick={() => onClickButtonPayment()}
           disabled={!checkout.summary.hasOwnProperty("id")}
         />
       </TotalDelivery>

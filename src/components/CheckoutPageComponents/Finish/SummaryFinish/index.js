@@ -56,7 +56,7 @@ const SummaryFinish = () => {
       <TotalDelivery>
         <TotalDetail>
           <TotalTitle>Cost of goods</TotalTitle>
-          <TotalValue>{currencyFormatter(500000)}</TotalValue>
+          <TotalValue>{currencyFormatter(500_000)}</TotalValue>
         </TotalDetail>
         <TotalDetail>
           <TotalTitle>Dropshipping Fee</TotalTitle>
