@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# E-Commerce Checkout Page
 
 ![screely-1689739801392](https://github.com/leonaldopasaribu/checkout-page/assets/51619445/116b5aaa-a6c1-4e1b-9d3b-a72d74616e25)
 ![screely-1689742796918](https://github.com/leonaldopasaribu/checkout-page/assets/51619445/8c28aafd-2d8a-4327-b059-de625bd0df84)
