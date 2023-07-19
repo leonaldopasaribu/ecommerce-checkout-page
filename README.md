@@ -1,5 +1,10 @@
 # Getting Started with Create React App
 
+![screely-1689739801392](https://github.com/leonaldopasaribu/checkout-page/assets/51619445/116b5aaa-a6c1-4e1b-9d3b-a72d74616e25)
+![screely-1689742796918](https://github.com/leonaldopasaribu/checkout-page/assets/51619445/8c28aafd-2d8a-4327-b059-de625bd0df84)
+![screely-1689742816176](https://github.com/leonaldopasaribu/checkout-page/assets/51619445/5d53d5ae-3916-4e5e-9eb1-a919430c3b24)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
