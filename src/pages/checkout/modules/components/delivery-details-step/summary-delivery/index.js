@@ -54,7 +54,7 @@ const SummaryDelivery = () => {
           </TotalPaymentValue>
         </TotalPayment>
         <Buttons
-          title="Continue to Payment"
+          label="Continue to Payment"
           onClick={() => onAddDeliveryDetails()}
         />
       </TotalDelivery>

@@ -8,18 +8,18 @@ describe("Button", () => {
     render(<Button />);
   });
 
-  it("should renders title 'Click me' when button render", () => {
-    const stubTitle = "Click me";
+  it("should renders label 'Click me' when button render", () => {
+    const stubLabel = "Click me";
 
-    render(<Button title={stubTitle} />);
+    render(<Button label={stubLabel} />);
 
-    expect(screen.getByText(stubTitle)).toBeInTheDocument();
+    expect(screen.getByText(stubLabel)).toBeInTheDocument();
   });
 
   it("should calls the onClick function when button clicked", () => {
-    const stubTitle = "Click me";
+    const stubLabel = "Click me";
     const onClickMock = jest.fn();
-    render(<Button title={stubTitle} onClick={onClickMock} />);
+    render(<Button label={stubLabel} onClick={onClickMock} />);
     const button = screen.getByText("Click me");
 
     fireEvent.click(button);

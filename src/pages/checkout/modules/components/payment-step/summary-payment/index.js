@@ -86,7 +86,7 @@ const SummaryPayment = () => {
         </TotalPayment>
 
         <Buttons
-          title={`Payment with ${
+          label={`Payment with ${
             (isEWallet && "e-Wallet") ||
             (isBankTransfer && "Bank Transfer") ||
             (isVirtualAccount && "Virtual Account")
