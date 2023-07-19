@@ -25,7 +25,7 @@ const FormDeliveryDetails = () => {
 
   const [formValue, setFormValue] = useState(initialValue);
 
-  const handleChange = (event) => {
+  const onHandleValueChange = (event) => {
     setFormValue({ ...formValue, [event.target.name]: event.target.value });
   };
 
@@ -79,7 +79,7 @@ const FormDeliveryDetails = () => {
               placeholder="Delivery Address"
               maxLength={120}
               name="deliveryAddress"
-              onChange={handleChange}
+              onChange={onHandleValueChange}
               value={formValue.deliveryAddress}
             />
             <FormTextAreaCount>

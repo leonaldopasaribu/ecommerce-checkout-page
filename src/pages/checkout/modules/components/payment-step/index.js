@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-import SummaryPayment from "./SummaryPayment";
-import Shipment from "./Shipment";
-import PaymentMethod from "./PaymentMethod";
+import SummaryPayment from "./summary-payment";
+import Shipment from "./shipment";
+import PaymentMethod from "./payment-method";
 
 import {
   PaymentWrapper,

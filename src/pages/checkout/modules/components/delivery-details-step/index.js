@@ -23,8 +23,8 @@ import {
   Content,
 } from "./styles";
 
-import FormDeliveryDetails from "./FormDeliveryDetails";
-import SummaryDelivery from "./SummaryDelivery";
+import FormDeliveryDetails from "./form-delivery-details";
+import SummaryDelivery from "./summary-delivery";
 
 import { CHECKOUT_DROPSHIPPING_FEE } from "redux/actionTypes";
 

@@ -1,7 +1,8 @@
 import React from "react";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-import SummaryFinish from "./SummaryFinish";
-import OrderSummary from "./OrderSummary";
+import SummaryFinish from "./summary-finish";
+import OrderSummary from "./order-summary";
 
 import {
   FinishWrapper,
@@ -12,8 +13,6 @@ import {
   RightIcon,
   Content,
 } from "./styles";
-
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const Finish = () => {
   return (
