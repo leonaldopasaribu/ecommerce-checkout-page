@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 import {
   DeliveryDetailsWrapper,
@@ -24,10 +26,7 @@ import {
 import FormDeliveryDetails from "./FormDeliveryDetails";
 import SummaryDelivery from "./SummaryDelivery";
 
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-
-import { CHECKOUT_DROPSHIPPING_FEE } from "../../../redux/actionTypes";
+import { CHECKOUT_DROPSHIPPING_FEE } from "redux/actionTypes";
 
 const DeliveryDetails = () => {
   const dispatch = useDispatch();

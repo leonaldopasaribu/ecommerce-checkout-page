@@ -16,7 +16,7 @@ import {
 
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-import { finishCheckout } from "../../../../redux/store/actions/checkout.action";
+import { finishCheckout } from "redux/store/actions/checkout.action";
 
 const OrderSummary = () => {
   const dispatch = useDispatch();

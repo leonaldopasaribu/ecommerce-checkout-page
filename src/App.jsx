@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { AppProvider } from "./context/AppContext";
-import Checkout from "./pages/Checkout";
+import Checkout from "./pages/checkout";
 
 import "./styles/main.scss";
 

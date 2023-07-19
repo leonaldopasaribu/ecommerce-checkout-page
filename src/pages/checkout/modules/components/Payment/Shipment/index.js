@@ -8,14 +8,13 @@ import {
   TitleBorderBottom,
   ShipmentList,
   ShipmentItem,
-  // ShipmentItemActive,
   ShipmentItemTitle,
   ShipmentItemValue,
 } from "./styles";
 
-import { AppContext } from "../../../../context/AppContext";
+import { AppContext } from "context/AppContext";
 
-import { CHECKOUT_SHIPPING_FEE } from "../../../../redux/actionTypes";
+import { CHECKOUT_SHIPPING_FEE } from "redux/actionTypes";
 
 const Shipment = ({ shipmentData }) => {
   const dispatch = useDispatch();
@@ -25,8 +24,6 @@ const Shipment = ({ shipmentData }) => {
   const [active, setActive] = useState(0);
 
   const shipmentActive = (data, i) => {
-    // console.log(data);
-
     dispatch({
       type: CHECKOUT_SHIPPING_FEE,
       payload: data,

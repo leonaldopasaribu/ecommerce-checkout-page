@@ -18,7 +18,7 @@ import {
   TotalPaymentValue,
 } from "./styles";
 
-import { AppContext } from "../../../../context/AppContext";
+import { AppContext } from "context/AppContext";
 
 const SummaryFinish = () => {
   const { currencyFormatter } = useContext(AppContext);

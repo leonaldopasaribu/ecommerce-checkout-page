@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import Buttons from "../../../GlobalComponents/Buttons";
-
 import {
   SummaryWrapper,
   Title,
@@ -20,9 +18,11 @@ import {
   TotalPaymentValue,
 } from "./styles";
 
-import { choosePaymentMethod } from "../../../../redux/store/actions/checkout.action";
+import Buttons from "shared/components/buttons";
 
-import { AppContext } from "../../../../context/AppContext";
+import { choosePaymentMethod } from "redux/store/actions/checkout.action";
+
+import { AppContext } from "context/AppContext";
 
 const SummaryPayment = () => {
   const dispatch = useDispatch();

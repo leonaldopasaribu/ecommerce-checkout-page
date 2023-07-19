@@ -1,5 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 import SummaryPayment from "./SummaryPayment";
 import Shipment from "./Shipment";
@@ -19,10 +21,7 @@ import {
   Content,
 } from "./styles";
 
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-
-import { CHECKOUT_BACK_DELIVERY } from "../../../redux/actionTypes";
+import { CHECKOUT_BACK_DELIVERY } from "redux/actionTypes";
 
 const Payment = () => {
   const dispatch = useDispatch();

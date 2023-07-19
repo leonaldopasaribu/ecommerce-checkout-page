@@ -14,7 +14,7 @@ import {
   PaymentItemActiveWallet,
 } from "./styles";
 
-import { AppContext } from "../../../../context/AppContext";
+import { AppContext } from "context/AppContext";
 
 const PaymentMethod = () => {
   const {

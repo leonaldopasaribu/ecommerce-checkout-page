@@ -1,6 +1,6 @@
 import React from "react";
 
-import CheckoutLayout from "../components/CheckoutPageComponents/CheckoutLayout";
+import CheckoutLayout from "./modules/components/CheckoutLayout";
 
 export default function Checkout() {
   return (
